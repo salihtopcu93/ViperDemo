@@ -43,13 +43,9 @@ extension ListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let title : String = medias?.results[indexPath.row].trackName ?? ""
-        let subtitle : String = medias?.results[indexPath.row].artistName ?? ""
-        let imageURL : String = medias?.results[indexPath.row].artworkUrl100 ?? ""
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListTableViewCell
-        cell.setView(imageURL: imageURL, title: title, subtitle: subtitle)
+        cell.configure(with: (medias?.results[indexPath.row])!)
         return cell
     }
     

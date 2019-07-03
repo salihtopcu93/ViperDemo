@@ -22,13 +22,12 @@ class ListTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
-    func setView(imageURL: String, title: String, subtitle: String){
-        titleLabel.text = title
-        subtitleLabel.text = subtitle
-        cellImageView.kf.setImage(with: URL(string: imageURL))
+    func configure(with media: Media) {
+        titleLabel.text = media.artistName
+        subtitleLabel.text = media.trackName
+        cellImageView.kf.setImage(with: URL(string: media.artworkUrl100 ?? "") )
     }
 
 }
