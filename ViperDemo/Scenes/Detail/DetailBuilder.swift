@@ -13,7 +13,7 @@ class DetailBuilder {
     static func make(media: Media) -> DetailViewController {
         let storyBoard = UIStoryboard(name: "Detail", bundle: nil)
         let view = storyBoard.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
-        let presenter = DetailPresenter(view: view as MovieDetailViewProtocol, media: media)
+        let presenter = DetailPresenter(view: view as trackDetailViewProtocol, media: media)
         
         view.presenter = presenter
         

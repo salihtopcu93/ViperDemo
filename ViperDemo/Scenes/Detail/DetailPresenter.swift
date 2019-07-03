@@ -11,12 +11,12 @@ import UIKit
 
 class DetailPresenter {
     
-    unowned var view: MovieDetailViewProtocol?
+    var view: trackDetailViewProtocol?
     private let media: Media
 
-    init(view: MovieDetailViewProtocol, media: Media) {
+    init(view: trackDetailViewProtocol, media: Media) {
         self.view = view
-       self.media = media
+        self.media = media
     }
     
 }

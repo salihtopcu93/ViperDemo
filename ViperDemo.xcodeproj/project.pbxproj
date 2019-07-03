@@ -28,7 +28,7 @@
 		17C0F5F722CB3F5C001F88F6 /* DetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0F5F022CB3F5C001F88F6 /* DetailBuilder.swift */; };
 		17C0F5FB22CB45CA001F88F6 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0F5FA22CB45CA001F88F6 /* List.swift */; };
 		17C0F5FD22CB45DA001F88F6 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0F5FC22CB45DA001F88F6 /* Media.swift */; };
-		17C0F60022CB46B2001F88F6 /* ItunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0F5FF22CB46B2001F88F6 /* ItunesService.swift */; };
+		17C0F60022CB46B2001F88F6 /* itunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0F5FF22CB46B2001F88F6 /* itunesAPI.swift */; };
 		6F66FFAD3291766665AE14AC /* Pods_ViperDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA431EDC39DD09375FC84FF /* Pods_ViperDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,7 @@
 		17C0F5F022CB3F5C001F88F6 /* DetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuilder.swift; sourceTree = "<group>"; };
 		17C0F5FA22CB45CA001F88F6 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		17C0F5FC22CB45DA001F88F6 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
-		17C0F5FF22CB46B2001F88F6 /* ItunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesService.swift; sourceTree = "<group>"; };
+		17C0F5FF22CB46B2001F88F6 /* itunesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itunesAPI.swift; sourceTree = "<group>"; };
 		7AF3DA5CFD0092711750FB7E /* Pods-ViperDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViperDemo.debug.xcconfig"; path = "Target Support Files/Pods-ViperDemo/Pods-ViperDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7BE02D0D7CED38C4BCAC87A6 /* Pods-ViperDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViperDemo.release.xcconfig"; path = "Target Support Files/Pods-ViperDemo/Pods-ViperDemo.release.xcconfig"; sourceTree = "<group>"; };
 		AAA431EDC39DD09375FC84FF /* Pods_ViperDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViperDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,12 +74,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1723439B22CB7CB800086954 /* Cell */ = {
+		1723439B22CB7CB800086954 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
 				1723439922CB7A6D00086954 /* ListTableViewCell.swift */,
 			);
-			path = Cell;
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		177C5AE222CC8F5400D4675B /* App */ = {
@@ -131,11 +131,8 @@
 			children = (
 				177C5AE722CC8FD900D4675B /* Base */,
 				177C5AE222CC8F5400D4675B /* App */,
-				1723439B22CB7CB800086954 /* Cell */,
-				17C0F5E922CB3EE6001F88F6 /* List */,
-				17C0F5EA22CB3F48001F88F6 /* Detail */,
-				17C0F5F922CB430F001F88F6 /* Models */,
-				17C0F5FE22CB468D001F88F6 /* Network */,
+				E47D47AF22CCE59500E08D3F /* Scenes */,
+				E47D47B022CCE59E00E08D3F /* Network */,
 				177C5AF022CCCED100D4675B /* Resources */,
 				17C0F5D222CB3EB9001F88F6 /* LaunchScreen.storyboard */,
 				17C0F5D522CB3EB9001F88F6 /* Info.plist */,
@@ -178,12 +175,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		17C0F5FE22CB468D001F88F6 /* Network */ = {
+		17C0F5FE22CB468D001F88F6 /* ApiService */ = {
 			isa = PBXGroup;
 			children = (
-				17C0F5FF22CB46B2001F88F6 /* ItunesService.swift */,
+				17C0F5FF22CB46B2001F88F6 /* itunesAPI.swift */,
 			);
-			path = Network;
+			path = ApiService;
 			sourceTree = "<group>";
 		};
 		A09E0BAE7905AE13B0A2BABF /* Pods */ = {
@@ -201,6 +198,25 @@
 				AAA431EDC39DD09375FC84FF /* Pods_ViperDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E47D47AF22CCE59500E08D3F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1723439B22CB7CB800086954 /* CustomCells */,
+				17C0F5E922CB3EE6001F88F6 /* List */,
+				17C0F5EA22CB3F48001F88F6 /* Detail */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E47D47B022CCE59E00E08D3F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				17C0F5F922CB430F001F88F6 /* Models */,
+				17C0F5FE22CB468D001F88F6 /* ApiService */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17C0F5E422CB3EDF001F88F6 /* ListRouter.swift in Sources */,
-				17C0F60022CB46B2001F88F6 /* ItunesService.swift in Sources */,
+				17C0F60022CB46B2001F88F6 /* itunesAPI.swift in Sources */,
 				17C0F5F522CB3F5C001F88F6 /* DetailContracts.swift in Sources */,
 				177C5AE622CC8F7A00D4675B /* AppContainer.swift in Sources */,
 				17C0F5F622CB3F5C001F88F6 /* DetailViewController.swift in Sources */,

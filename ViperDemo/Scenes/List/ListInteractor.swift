@@ -9,10 +9,10 @@
 
 import UIKit
 
-class ListInteractor {
+final class ListInteractor {
 
     weak var delegate: ListInteractorDelegate?
-    private var movies: Search!
+    private var tracks: Search!
 }
 
 extension  ListInteractor:  ListInteractorProtocol {
@@ -30,7 +30,7 @@ extension  ListInteractor:  ListInteractorProtocol {
                 
                 do {
                     let results = try JSONDecoder().decode(Search.self, from: data)
-                    self.movies = results
+                    self.tracks = results
                     self.delegate?.handleOutput(.getMediaList(results))
                 } catch let error {
                     print(error)
@@ -42,12 +42,9 @@ extension  ListInteractor:  ListInteractorProtocol {
         }
     }
     
-    func selectMovie(at index: Int) {
-        let movie = movies.results[index]
-        delegate?.handleOutput(.showMovieDetail(movie))
+    func selecttrack(at index: Int) {
+        let track = tracks.results[index]
+        delegate?.handleOutput(.showtrackDetail(track))
     }
-    
-    func showMovieDetail() {
-        //
-    }
+ 
 }

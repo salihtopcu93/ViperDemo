@@ -9,10 +9,10 @@
 import Foundation
 
 // MARK: Presenter
-protocol DetailPresenterProtocol: class {
+protocol DetailPresenterProtocol {
      func load()
 }
 
-protocol MovieDetailViewProtocol: class {
+protocol trackDetailViewProtocol {
     func update(_ presentation: Media)
 }

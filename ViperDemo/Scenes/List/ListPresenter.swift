@@ -9,16 +9,7 @@
 
 import UIKit
 
-final class ListPresenter: ListPresenterProtocol {
-    
-    func selectMovie(at index: Int) {
-        interactor.selectMovie(at: index)
-    }
-    
-    func load() {
-        interactor.load()
-    }
-
+final class ListPresenter {
     weak private var view: ListViewProtocol?
     var interactor: ListInteractorProtocol
     private let router: ListRouterProtocol
@@ -33,16 +24,26 @@ final class ListPresenter: ListPresenterProtocol {
 
 }
 
+extension ListPresenter: ListPresenterProtocol {
+    func selecttrack(at index: Int) {
+        interactor.selecttrack(at: index)
+    }
+    
+    func load() {
+        interactor.load()
+    }
+}
+
 
 extension ListPresenter: ListInteractorDelegate {
     func handleOutput(_ output: ListInteractorOutput) {
         switch output {
         case .setLoading(let isLoading):
-            view!.handleOutput(.setLoading(isLoading))
+            view?.handleOutput(.setLoading(isLoading))
         case .getMediaList(let medias):
-            view!.handleOutput(.getMediaList(medias: medias))
-        case .showMovieDetail(let movie):
-            router.navigate(.list(movie))
+            view?.handleOutput(.getMediaList(medias: medias))
+        case .showtrackDetail(let track):
+            router.navigate(.list(track))
         }
     }
 }

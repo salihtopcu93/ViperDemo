@@ -9,9 +9,9 @@
 
 import UIKit
 
-class ListRouter {
+final class ListRouter {
     
-    let view: UIViewController
+    var view: UIViewController
     
     init(view: UIViewController) {
         self.view = view

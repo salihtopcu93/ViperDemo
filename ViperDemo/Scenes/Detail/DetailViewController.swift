@@ -9,7 +9,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, MovieDetailViewProtocol {
+class DetailViewController: UIViewController, trackDetailViewProtocol {
     
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailTitle: UILabel!

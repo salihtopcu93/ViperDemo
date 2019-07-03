@@ -8,10 +8,15 @@
 
 import Foundation
 
+// MARK: View
+protocol ListViewProtocol: class {
+    func handleOutput(_ output: ListPresenterOutput)
+}
+
 // MARK: Presenter
-protocol ListPresenterProtocol: class {
+protocol ListPresenterProtocol {
     func load()
-    func selectMovie(at index: Int)
+    func selecttrack(at index: Int)
 }
 
 enum ListPresenterOutput {
@@ -20,14 +25,11 @@ enum ListPresenterOutput {
 }
 
 // MARK: Interactor -
-protocol ListInteractorProtocol: class {
+protocol ListInteractorProtocol {
 
  var delegate: ListInteractorDelegate? { get set }
     func load()
-    func selectMovie(at index: Int)
-    func showMovieDetail()
-    
-
+    func selecttrack(at index: Int)
 }
 
 protocol ListInteractorDelegate: class {
@@ -37,14 +39,7 @@ protocol ListInteractorDelegate: class {
 enum ListInteractorOutput {
     case setLoading(Bool)
     case getMediaList(Search)
-    case showMovieDetail(Media)
-    
-
-}
-
-// MARK: View
-protocol ListViewProtocol: class {
-    func handleOutput(_ output: ListPresenterOutput)
+    case showtrackDetail(Media)
 }
 
 // MARK: Router
@@ -53,6 +48,6 @@ enum ListRoutes {
     case list(Media)
 }
 
-protocol ListRouterProtocol: class {
+protocol ListRouterProtocol {
     func navigate(_ route: ListRoutes)
 }

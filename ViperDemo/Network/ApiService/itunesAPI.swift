@@ -9,16 +9,21 @@
 import Foundation
 import Moya
 
-enum IMDbAPIService {
+enum Environment: String {
+    case production = "https://itunes.apple.com/search?parameterkeyvalue&term=all&limit=50"
+}
+var environment: Environment = .production
+
+enum itunesAPI {
     case search
 }
 
 let pluginsArray:[PluginType] = [NetworkLoggerPlugin(cURL: true)]
-let provider = MoyaProvider<IMDbAPIService>(plugins: pluginsArray)
+let provider = MoyaProvider<itunesAPI>(plugins: pluginsArray)
 
-extension IMDbAPIService: TargetType {
+extension itunesAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "https://itunes.apple.com/search?parameterkeyvalue&term=all&limit=50")!
+        return URL(string: environment.rawValue)!
     }
     
     var path: String {

@@ -56,7 +56,7 @@ extension ListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: false)
-        presenter.selectMovie(at: indexPath.row)
+        presenter.selecttrack(at: indexPath.row)
        
         
    }
