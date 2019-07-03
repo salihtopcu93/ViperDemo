@@ -1,5 +1,5 @@
-a//
-//  File.swift
+//
+//  AppContainer.swift
 //  ViperDemo
 //
 //  Created by salih topcu on 3.07.2019.
@@ -7,3 +7,11 @@ a//
 //
 
 import Foundation
+
+let app = AppContainer()
+
+final class AppContainer {
+    
+    let router = AppRouter()
+}
+

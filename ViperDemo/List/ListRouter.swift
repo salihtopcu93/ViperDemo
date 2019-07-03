@@ -10,16 +10,20 @@
 import UIKit
 
 class ListRouter {
-    unowned var viewController: UIViewController
-
-    init(viewController: UIViewController) {
-        self.viewController = viewController
+    
+    let view: UIViewController
+    
+    init(view: UIViewController) {
+        self.view = view
     }
 }
 
 extension ListRouter: ListRouterProtocol {
     func navigate(_ route: ListRoutes) {
         switch route {
+        case .list(let searchModel):
+            let listView = DetailBuilder.make(media: searchModel)
+            view.show(listView, sender: nil)
         }
     }
 }

@@ -10,33 +10,19 @@
 import UIKit
 
 class DetailPresenter {
+    
+    unowned var view: MovieDetailViewProtocol?
+    private let media: Media
 
-    weak private var view: DetailViewProtocol?
-    var interactor: DetailInteractorProtocol
-    private let router: DetailRouterProtocol
-
-    init(view: DetailViewProtocol, interactor: DetailInteractorProtocol, router: DetailRouterProtocol) {
+    init(view: MovieDetailViewProtocol, media: Media) {
         self.view = view
-        self.interactor = interactor
-        self.router = router
-        
-        self.interactor.delegate = self
+       self.media = media
     }
-
+    
 }
 
 extension DetailPresenter: DetailPresenterProtocol {
-    
-    func navigate(_ route: DetailRoutes) {
-        router.navigate(route)
-    }
-    
-}
-
-extension DetailPresenter: DetailInteractorDelegate {
-    func handleOutput(_ output: DetailInteractorOutput) {
-        switch output {
-        }
+    func load() {
+        view?.update(media)
     }
 }
-

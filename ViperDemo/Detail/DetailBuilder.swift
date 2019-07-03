@@ -10,12 +10,10 @@ import UIKit
 
 class DetailBuilder {
     
-    static func make() -> DetailViewController {
+    static func make(media: Media) -> DetailViewController {
         let storyBoard = UIStoryboard(name: "Detail", bundle: nil)
-        let view: DetailViewController = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        let interactor = DetailInteractor()
-        let router = DetailRouter(viewController: view)
-        let presenter = DetailPresenter(view: view, interactor: interactor, router: router)
+        let view = storyBoard.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
+        let presenter = DetailPresenter(view: view as MovieDetailViewProtocol, media: media)
         
         view.presenter = presenter
         

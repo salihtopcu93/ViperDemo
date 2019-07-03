@@ -14,7 +14,7 @@ class ListBuilder {
         let storyBoard = UIStoryboard(name: "List", bundle: nil)
         let view: ListViewController = storyBoard.instantiateViewController(withIdentifier: "ListViewController") as! ListViewController
         let interactor = ListInteractor()
-        let router = ListRouter(viewController: view)
+        let router = ListRouter(view: view)
         let presenter = ListPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter

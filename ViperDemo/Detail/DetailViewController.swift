@@ -9,20 +9,25 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-
+class DetailViewController: UIViewController, MovieDetailViewProtocol {
+    
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var detailTitle: UILabel!
+    @IBOutlet weak var detailSubtitle: UILabel!
+    
 	var presenter: DetailPresenter!
+    var result: Media!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.load()
     }
-
-}
-
-extension DetailViewController: DetailViewProtocol {
     
-    func handleOutput(_ output:  DetailPresenterOutput) {
-        switch output {
-        }
+    func update(_ presentation: Media) {
+        detailImageView.kf.setImage(with: URL(string: presentation.artworkUrl100 ?? ""))
+        detailTitle.text = presentation.artistName
+        detailSubtitle.text = presentation.trackName
     }
+
+
 }

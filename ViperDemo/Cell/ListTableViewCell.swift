@@ -25,7 +25,7 @@ class ListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setView(imageURL: String, title: String, subtitle: String ){
+    func setView(imageURL: String, title: String, subtitle: String){
         titleLabel.text = title
         subtitleLabel.text = subtitle
         cellImageView.kf.setImage(with: URL(string: imageURL))

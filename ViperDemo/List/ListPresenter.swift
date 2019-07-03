@@ -9,7 +9,15 @@
 
 import UIKit
 
-class ListPresenter {
+final class ListPresenter: ListPresenterProtocol {
+    
+    func selectMovie(at index: Int) {
+        interactor.selectMovie(at: index)
+    }
+    
+    func load() {
+        interactor.load()
+    }
 
     weak private var view: ListViewProtocol?
     var interactor: ListInteractorProtocol
@@ -25,17 +33,16 @@ class ListPresenter {
 
 }
 
-extension ListPresenter: ListPresenterProtocol {
-    
-    func navigate(_ route: ListRoutes) {
-        router.navigate(route)
-    }
-    
-}
 
 extension ListPresenter: ListInteractorDelegate {
     func handleOutput(_ output: ListInteractorOutput) {
         switch output {
+        case .setLoading(let isLoading):
+            view!.handleOutput(.setLoading(isLoading))
+        case .getMediaList(let medias):
+            view!.handleOutput(.getMediaList(medias: medias))
+        case .showMovieDetail(let movie):
+            router.navigate(.list(movie))
         }
     }
 }
