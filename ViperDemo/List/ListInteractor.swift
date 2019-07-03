@@ -8,7 +8,6 @@
 
 
 import UIKit
-import Moya
 
 class ListInteractor {
 
@@ -20,9 +19,6 @@ extension  ListInteractor:  ListInteractorProtocol {
 
     func load() {
         delegate?.handleOutput(.setLoading(true))
-        
-        let pluginsArray:[PluginType] = [NetworkLoggerPlugin(cURL: true)]
-        let provider = MoyaProvider<IMDbAPIService>(plugins: pluginsArray)
         
         provider.request(.search) { [weak self] response in
             guard let self = self else { return }

@@ -13,6 +13,9 @@ enum IMDbAPIService {
     case search
 }
 
+let pluginsArray:[PluginType] = [NetworkLoggerPlugin(cURL: true)]
+let provider = MoyaProvider<IMDbAPIService>(plugins: pluginsArray)
+
 extension IMDbAPIService: TargetType {
     var baseURL: URL {
         return URL(string: "https://itunes.apple.com/search?parameterkeyvalue&term=all&limit=50")!
